@@ -23,5 +23,4 @@ Browse through the images and choose the one that best fits your screen size!
 
 ## Credits
 
-- Original artwork created by [Original Creator Name/Source]. These images are resized versions, and the original copyright is respected.
-# mhwilds-art-book
+- Original artwork created by [Capcom](https://www.capcomusa.com/). These images are resized versions, and the original copyright is respected.
