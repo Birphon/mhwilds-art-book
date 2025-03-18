@@ -5,19 +5,19 @@ if (!imageFileName) {
   window.location.href = "index.html";
 }
 
-// Folder names corresponding to each image size
+// Folder names corresponding to each image size with their dimensions
 const folders = [
-  '4k-desktop', 
-  '750x1334', 
-  '1440x900', 
-  '1440x2560', 
-  '1600x900', 
-  '3440x1440',
-  'full-hd', 
-  'laptop', 
-  'mobile-portrait', 
-  'qhd', 
-  'ultrawide'
+  { folder: '4k-desktop', name: '4K DESKTOP', dimensions: '3840×2160' },
+  { folder: '750x1334', name: '750×1334', dimensions: '750×1334' },
+  { folder: '1440x900', name: '1440×900', dimensions: '1440×900' },
+  { folder: '1440x2560', name: '1440×2560', dimensions: '1440×2560' },
+  { folder: '1600x900', name: '1600×900', dimensions: '1600×900' },
+  { folder: '3440x1440', name: 'ULTRAWIDE', dimensions: '3440×1440' },
+  { folder: 'full-hd', name: 'FULL HD', dimensions: '1920×1080' },
+  { folder: 'laptop', name: 'LAPTOP', dimensions: '1366×768' },
+  { folder: 'mobile-portrait', name: 'MOBILE', dimensions: '1080×1920' },
+  { folder: 'qhd', name: 'QHD', dimensions: '2560×1440' },
+  { folder: 'ultrawide', name: 'ULTRAWIDE+', dimensions: '3840×1600' }
 ];
 
 // Set page title to image name
@@ -55,25 +55,35 @@ if (buttonsContainer) {
   buttonGrid.classList.add('button-grid');
   buttonsContainer.appendChild(buttonGrid);
 
-  folders.forEach(folder => {
+  folders.forEach(item => {
     // Create a direct download link styled as a button 
     const downloadLink = document.createElement('a');
-    const sizeName = folder.replace(/-/g, ' ').toUpperCase();
-    downloadLink.href = `images/${folder}/${imageFileName}`;
-    downloadLink.download = `${imageFileName.split('.')[0]}-${folder}.jpg`;
-    downloadLink.textContent = sizeName;
+    downloadLink.href = `images/${item.folder}/${imageFileName}`;
+    downloadLink.download = `${imageFileName.split('.')[0]}-${item.folder}.jpg`;
+    downloadLink.textContent = item.name;
     downloadLink.classList.add('download-link');
     
     const button = document.createElement('div');
     button.classList.add('download-button');
+    button.title = `Download in ${item.dimensions} resolution`;
+    button.setAttribute('data-dimensions', item.dimensions);
     
     // Handle errors if the image doesn't exist in a particular format
     downloadLink.addEventListener('error', () => {
       button.classList.add('unavailable');
-      button.title = `${sizeName} version is not available`;
+      button.title = `${item.name} version (${item.dimensions}) is not available`;
     });
     
     button.appendChild(downloadLink);
     buttonGrid.appendChild(button);
   });
+}
+
+// Size info tooltip
+const buttonContainer = document.querySelector('.buttons');
+if (buttonContainer) {
+  const sizeInfo = document.createElement('p');
+  sizeInfo.classList.add('size-info');
+  sizeInfo.innerHTML = '<i>Hover over a button to see exact dimensions</i>';
+  buttonContainer.insertBefore(sizeInfo, buttonContainer.querySelector('.button-grid'));
 }
