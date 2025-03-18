@@ -46,6 +46,6 @@ def extract_frames(video_path, output_folder):
     print(f"Extraction complete. All frames are saved to '{output_folder}'.")
 
 # Example usage
-video_path = 'E:\CodeRepos\personal\working on\PricePlaces\priceplaces\dumb1\MHWilds-Digital-Art-Book.mp4'  # Path to your MP4 file
-output_folder = 'E:\CodeRepos\personal\working on\PricePlaces\priceplaces\dumb1\extracted_frames'  # Folder to save the frames
+video_path = 'E:/CodeRepos/personal/working on/mhwilds-art-book/rescaling/MHWilds-Digital-Art-Book.mp4'  # NOT INCLUDED
+output_folder = 'E:/CodeRepos/personal/working on/mhwilds-art-book/rescaling/extracted_frames'  # Folder to save the frames
 extract_frames(video_path, output_folder)

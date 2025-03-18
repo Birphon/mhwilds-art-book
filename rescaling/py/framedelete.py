@@ -57,5 +57,5 @@ def remove_similar_images(folder_path, similarity_threshold=0.99):
     print(f"Completed. Total deleted images: {deleted_count}")
 
 # Example usage
-folder_path = 'E:/CodeRepos/personal/working on/PricePlaces/priceplaces/dumb1/extracted_frames'
+folder_path = 'E:/CodeRepos/personal/working on/mhwilds-art-book/rescaling/extracted_frames'
 remove_similar_images(folder_path, similarity_threshold=0.99)

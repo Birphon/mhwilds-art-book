@@ -88,8 +88,8 @@ screen_sizes = [
 ]
 
 # Define folder paths
-input_folder = 'E:/CodeRepos/personal/working on/PricePlaces/priceplaces/dumb1/extracted_frames'
-output_base_folder = 'E:/CodeRepos/personal/working on/PricePlaces/priceplaces/dumb1/resized_frames'
+input_folder = 'E:/CodeRepos/personal/working on/mhwilds-art-book/rescaling/extracted_frames'
+output_base_folder = 'E:/CodeRepos/personal/working on/mhwilds-art-book/rescaling/resized_frames'
 
 # Process images
 process_images(input_folder, output_base_folder, screen_sizes)
